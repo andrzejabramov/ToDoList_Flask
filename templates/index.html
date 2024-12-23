@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do Index</title>
+</head>
+<body>
+<h1>Hello, root</h1>
+<div>
+    <h3>Add new todo</h3>
+    <div>
+        <form method="post">
+        <label for="todo-text-id">New todo:</label>
+        <input
+                id="todo-text-id"
+                name="todo-text"
+                type="text"
+                required="required"
+        >
+            <button type="submit">ADD</button>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="Flashes">
+                {% for message in messages%}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif%}
+            {% endwith%}
+        </form>
+    </div>
+    <h3>Todos:</h3>
+    <ul>
+        {% for todo in todos %}
+        <li> {{ todo.text }} {{ '✅' if todo.done else '❌' }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
