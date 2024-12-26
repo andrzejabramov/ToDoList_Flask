@@ -8,7 +8,7 @@
     <title>To Do Index</title>
 </head>
 <body>
-<h1>Hello, root</h1>
+<h1>Todo List</h1>
 <div>
     <h3>Add new todo</h3>
     <div>
@@ -35,7 +35,23 @@
     <h3>Todos:</h3>
     <ul>
         {% for todo in todos %}
-        <li> {{ todo.text }} {{ '✅' if todo.done else '❌' }}</li>
+        <li style="margin-bottom: 3px">
+            <form
+                    style="display:inline;"
+                    action="{{ url_for('todo_app.toggle', todo_id=todo.id) }}"
+                    method="post"
+            >
+                <input type="submit" value="▶️️"/>
+            </form>
+            {{ todo.text }} {{ '✅' if todo.done else '⏺️' }}
+            <form
+                    style="display:inline;"
+                    action="{{ url_for('todo_app.delete', todo_id=todo.id) }}"
+                    method="post"
+            >
+                <input type="submit" value="❌"/>
+            </form>
+        </li>
         {% endfor %}
     </ul>
 </div>
