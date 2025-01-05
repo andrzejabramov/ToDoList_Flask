@@ -139,4 +139,5 @@ def delete_todo(todo_id: int):
     </ul>
 ```
 Процесс работы приложения представлен скринами нижe:
-
+![page_start](https://github.com/andrzejabramov/ToDoList_Flask/blob/master/screens/Page_start.png)
+![table_start](https://github.com/andrzejabramov/ToDoList_Flask/blob/master/screens/Table_start.png)
